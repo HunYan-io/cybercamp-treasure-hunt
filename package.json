@@ -1,13 +1,20 @@
 {
-  "name": "package-based",
+  "name": "cybercamp-treasure-hunt",
   "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
+  "license": "ISC",
+  "scripts": {
+    "start": "nx run backend:start",
+    "build": "run-p frontend:build backend:build",
+    "dev": "run-p frontend:dev backend:dev",
+    "frontend:build": "nx run frontend:generate",
+    "backend:build": "nx run backend:build",
+    "frontend:dev": "nx run frontend:dev",
+    "backend:dev": "nx run backend:dev"
+  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
-    "nx": "15.2.1",
-    "prettier": "^2.6.2"
+    "npm-run-all": "^4.1.5",
+    "nx": "15.2.1"
   },
   "workspaces": [
     "packages/*"

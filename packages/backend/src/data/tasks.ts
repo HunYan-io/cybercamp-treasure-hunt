@@ -1,0 +1,85 @@
+export interface Task {
+  id: number;
+  title: string;
+  description: string;
+  coins: number;
+  flag: string;
+  duration: number;
+  image?: string;
+  audio?: string;
+}
+
+export const tasks: Task[] = [
+  {
+    id: 0,
+    title: "Signup to Treasure Hunt",
+    description: "Welcome to Treasure Hunt!",
+    coins: 100,
+    flag: "UNDEFINED",
+    duration: 1000 * 60 * 1, // 8 minutes
+  },
+  {
+    id: 1,
+    title: "ready,set go",
+    description: "Let the hunt begin!",
+    coins: 100,
+    flag: "let's start",
+    duration: 1000 * 60 * 8, // 8 minutes
+    image: "/images/task1.png",
+  },
+  {
+    id: 2,
+    title: "the ring's origin",
+    description: "Romans made a god for everything, even security",
+    coins: 200,
+    flag: "Vindolanda",
+    duration: 1000 * 60 * 8, // 10 minutes
+  },
+
+  {
+    id: 3,
+    title: "215.115.215.119",
+    description: "it is about time to ask this question.",
+    coins: 300,
+    flag: "isitchristmas.com",
+    duration: 1000 * 60 * 15, // 15 minutes
+  },
+
+  {
+    id: 4,
+    title: "7.48 10.50",
+    description:
+      "even a stopped clock is right twice a day, flag format{--.--,--.--}",
+    coins: 350,
+    flag: "{4.48,7.50}",
+    duration: 1000 * 60 * 30, // 30 minutes
+  },
+
+  {
+    id: 5,
+    title: "ekko",
+    description: "It's not how much time you have, it's how you use it. 🕛🥶",
+    coins: 300,
+    flag: "4767825",
+    duration: 1000 * 60 * 25, // 25 minutes
+  },
+
+  {
+    id: 6,
+    title: "3odd_nen",
+    description: '"elon musk buying twitter made life easier" (@el3odnen)',
+    coins: 300,
+    flag: "u've earned the samurai title",
+    duration: 1000 * 60 * 18, // 10 minutes
+  },
+
+  {
+    id: 7,
+    title: "rip in peace",
+    description: "20:3 20:12 20:16", //el audio mtaa l morse code
+    coins: 500,
+    flag: "8-9-2022", //it's a date be tolerate if you can or hint the format
+    duration: 1000 * 60 * 30, // 30 minutes
+    audio: "/audio/task7.wav",
+  },
+];

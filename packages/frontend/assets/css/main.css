@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-shadow-solid2 {
+    text-shadow: 2px 2px 0px theme("colors.secondary");
+  }
+  .text-shadow-solid4 {
+    text-shadow: 4px 4px 0px theme("colors.secondary");
+  }
+}
+
+html {
+  color-scheme: dark;
+}
