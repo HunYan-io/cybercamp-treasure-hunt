@@ -21,7 +21,6 @@ const isOpen = ref(false);
 
 function toggleNavbar() {
   isOpen.value = !isOpen.value;
-  emit("toggle", isOpen.value);
 }
 
 watch(isMobile, (value) => {
@@ -46,6 +45,14 @@ function onItemClick(item: NavbarItem) {
     item.onClick();
   }
 }
+
+watch(isOpen, (val) => {
+  emit("toggle", val);
+});
+
+onUnmounted(() => {
+  emit("toggle", false);
+});
 </script>
 
 <template>

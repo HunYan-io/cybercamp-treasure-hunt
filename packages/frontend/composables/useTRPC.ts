@@ -13,12 +13,12 @@ function resolveWebsocketUrl() {
   const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
   const host = window.location.host;
   if (host === "localhost:3000") {
-    return `${protocol}//localhost:4000/wstrpc`;
+    return `${protocol}//localhost:8080/wstrpc`;
   }
   return `${protocol}//${window.location.host}/wstrpc`;
 }
 
-const wsClient =
+export const wsClient =
   typeof window !== "undefined"
     ? createWSClient({
         url: resolveWebsocketUrl(),

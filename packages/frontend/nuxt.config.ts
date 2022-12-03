@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   modules: [["nuxt-typed-router", { outDir: "./.generated" }], "@vueuse/nuxt"],
   nitro: {
     devProxy: {
-      "/trpc": "http://localhost:4000/trpc",
+      "/trpc": "http://localhost:8080/trpc",
     },
   },
 });

@@ -1,4 +1,7 @@
-import { PASSIVE_COINS_DURATION } from "~~/data/constants";
+import {
+  PASSIVE_COINS_DURATION,
+  TASK_STRIKE_DURATION_RATIO,
+} from "~~/data/constants";
 import { AppTRPC } from "./useTRPC";
 
 type AuthResponse = Awaited<ReturnType<AppTRPC["auth"]["data"]["query"]>>;
@@ -23,11 +26,16 @@ const eliminated = computed(() => strikes.value && strikes.value > 3);
 
 setInterval(() => coinsUpdater.value++, PASSIVE_COINS_DURATION);
 
-let taskDurationInterval: NodeJS.Timer | null;
+let taskDurationTimeout: NodeJS.Timer | null;
+let taskStrikeDurationTimeout: NodeJS.Timer | null;
 watchEffect(() => {
-  if (taskDurationInterval) {
-    clearInterval(taskDurationInterval);
-    taskDurationInterval = null;
+  if (taskDurationTimeout) {
+    clearTimeout(taskDurationTimeout);
+    taskDurationTimeout = null;
+  }
+  if (taskStrikeDurationTimeout) {
+    clearTimeout(taskStrikeDurationTimeout);
+    taskStrikeDurationTimeout = null;
   }
   const task = team.value?.tasks.find(
     (t) => t.task.id === team.value?.currentTask?.id
@@ -35,9 +43,13 @@ watchEffect(() => {
   if (!task) return;
   const duration =
     task.task.duration - (new Date().getTime() - task.startedAt.getTime());
-  taskDurationInterval = setInterval(
+  const strikeDuration =
+    task.task.duration * TASK_STRIKE_DURATION_RATIO -
+    (new Date().getTime() - task.startedAt.getTime());
+  taskDurationTimeout = setTimeout(() => taskDurationUpdater.value++, duration);
+  taskStrikeDurationTimeout = setTimeout(
     () => taskDurationUpdater.value++,
-    duration
+    strikeDuration
   );
 });
 

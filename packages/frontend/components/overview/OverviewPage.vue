@@ -96,6 +96,14 @@ function onChipClick(chip: Team["chips"][number]) {
     >
       You were eliminated.
     </div>
+    <div v-if="!team.currentTask" class="flex flex-col items-center gap-6">
+      <div class="text-center font-display text-4xl font-bold text-white">
+        Good job samurai
+      </div>
+      <div class="text-center font-body text-xl text-white">
+        Boss fight at Securinets' HQ (local)
+      </div>
+    </div>
     <div
       class="container flex flex-col items-stretch justify-between gap-12 sm:flex-row 2xl:max-w-7xl"
     >
@@ -150,7 +158,7 @@ function onChipClick(chip: Team["chips"][number]) {
               <div class="font-body text-lg text-white">
                 {{ team.currentTask?.title }}
               </div>
-              <TaskButton> Open Task </TaskButton>
+              <TaskButton class="bf-animation"> Open Task </TaskButton>
             </div>
           </div>
           <div
@@ -192,3 +200,22 @@ function onChipClick(chip: Team["chips"][number]) {
     <HintModal modal-id="hint" />
   </main>
 </template>
+
+<style lang="scss" scoped>
+.bf-animation {
+  margin-left: -2.5px;
+  animation: bfanim 2s infinite ease-in-out;
+}
+
+@keyframes bfanim {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+</style>
