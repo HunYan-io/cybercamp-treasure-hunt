@@ -1,16 +1,12 @@
 <script lang="ts" setup>
-import { Team } from "~~/composables/useAuth";
 import { TASK_SUBMIT_FEES } from "~~/data/constants";
 
 const props = defineProps<{
   modelValue: boolean;
-  task?: Team["tasks"][number];
-  partialTask?: Team["currentTask"];
+  taskId?: number;
 }>();
-const emit = defineEmits(["update:modelValue", "start"]);
+const emit = defineEmits(["update:modelValue"]);
 
-const task = toRef(props, "task");
-const partialTask = toRef(props, "partialTask");
 const flag = ref("");
 
 const flagError = ref("");
@@ -44,6 +40,16 @@ watch(flag, () => {
 
 const { coins, team, eliminated } = useAuth();
 
+const task = computed(() => {
+  return (
+    team.value && team.value.tasks.find((task) => task.task.id === props.taskId)
+  );
+});
+
+const partialTask = computed(() => {
+  return team.value && team.value.currentTask;
+});
+
 function gamble() {
   const gambleAmount = Number(amount.value);
   if (gambleAmount <= 0) {
@@ -70,7 +76,6 @@ function start(gambleAmount: number) {
     .then((newTeam) => {
       if (!team.value) return;
       team.value = newTeam;
-      emit("start");
     })
     .catch(() => {
       gambleError.value = "Unexpected error";

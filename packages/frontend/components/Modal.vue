@@ -44,6 +44,9 @@ watch(
     }
   }
 );
+onUnmounted(() => {
+  bodyOverflowHidden.value = false;
+});
 </script>
 
 <template>

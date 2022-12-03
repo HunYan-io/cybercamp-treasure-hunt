@@ -47,11 +47,11 @@ export const tasks: Task[] = [
 
   {
     id: 4,
-    title: "7.48 10.50",
+    title: "7:48 / 10:50",
     description:
-      "even a stopped clock is right twice a day, flag format{--.--,--.--}",
+      "even a stopped clock is right twice a day\n Note: the flag format is {--.--,--.--}",
     coins: 350,
-    flag: "{4.48,7.50}",
+    flag: "{04.48,07.50}",
     duration: 1000 * 60 * 30, // 30 minutes
   },
 
@@ -59,7 +59,7 @@ export const tasks: Task[] = [
     id: 5,
     title: "ekko",
     description:
-      "It's not about how much time you have, it's how you use it. 🕛🥶\n Note: the flag format is without a comma and its only 5 characters long",
+      "It's not about how much time you have, it's how you use it. 🕛🥶\n Note: the flag format is without a comma and is only 5 characters long",
     coins: 300,
     flag: "47678",
     duration: 1000 * 60 * 25, // 25 minutes
@@ -77,9 +77,10 @@ export const tasks: Task[] = [
   {
     id: 7,
     title: "rip in peace",
-    description: "20:3 20:12 20:16", //el audio mtaa l morse code
+    description:
+      "20:3 20:12 20:16 \n Note: The flag is a date in the format **-**-****", //el audio mtaa l morse code
     coins: 500,
-    flag: "8-9-2022", //it's a date be tolerate if you can or hint the format
+    flag: "08-09-2022", //it's a date be tolerate if you can or hint the format
     duration: 1000 * 60 * 30, // 30 minutes
     audio: "/audio/task7.wav",
   },

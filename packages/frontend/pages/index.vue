@@ -86,20 +86,42 @@ useNavbar({
         loading="lazy"
       />
       <h2 class="font-display text-4xl font-bold text-white">
-        What is treasure hunt?
+        How to play Treasure Hunt?
       </h2>
       <img src="~/assets/images/texture-construction-sign.svg" class="mb-4" />
-      <p class="max-w-2xl font-body text-lg text-white">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        faucibus gravida commodo. Aliquam varius quam felis, ac pharetra risus
-        condimentum sed. Nullam pharetra enim lacus, eu rhoncus lorem euismod
-        at. Phasellus blandit eget metus in rutrum. Nulla eget tellus luctus,
-        commodo ex eget, rutrum est. Curabitur tristique laoreet varius. Nullam
-        in sapien lacinia, blandit mi in, aliquam turpis. Vestibulum ut massa
-        posuere, accumsan odio ut, commodo metus. Donec eget tincidunt mauris.
-        Pellentesque habitant morbi tristique senectus et netus et malesuada
-        fames ac turpis egestas. Integer fringilla sapien eget finibus rutrum.
-      </p>
+      <ol class="flex max-w-2xl flex-col gap-5 font-body text-lg text-white">
+        <li>1. You must first register in our website.</li>
+        <li>
+          2. Once you register a timer will start (t-final) which will then be
+          used to rank teams once the event ends according to the total time
+          spent on the entire treasure hunt.
+        </li>
+        <li>
+          3. There will also be a seperate timer for each task starting as soon
+          as you submit the previous one, which will determine rewards and
+          penalties/strikes.
+        </li>
+        <li>4. You can use an ability to clear/remove strikes. (unstrike)</li>
+        <li>5. If the team reaches 4 strikes, they will be eliminated.</li>
+        <li>
+          6. Once you finish all the tasks and the team has 0 strikes, you can
+          then proceed to the escape room which will be held in the Securinets
+          office "local Securinets".
+        </li>
+        <li>7. There will be a passive income of 20 coins every minute.</li>
+        <li>
+          8. To finish a task the team must correctly submit the answer. Submits
+          will not be free, and will be limited to (5) submits.
+        </li>
+        <li>
+          9. You can use coins that you have earned to buy essential chips that
+          will help you in clearing tasks
+        </li>
+        <li>
+          10. The most important thing is to remember that this game is a
+          marathon, challenge yourself to find this treasure!
+        </li>
+      </ol>
     </section>
     <PrimarySection id="signup" ref="signupSection" class="mt-5 mb-28">
       <div

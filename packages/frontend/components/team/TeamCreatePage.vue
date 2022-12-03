@@ -56,6 +56,8 @@ function create() {
       if (isTRPCClientError(err)) {
         if (err.data?.code === "UNAUTHORIZED") {
           error.value = "Invalid name/password combination";
+        } else if (err.data?.code === "CONFLICT") {
+          error.value = "Team name already used";
         }
       }
     });

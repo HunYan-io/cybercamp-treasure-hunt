@@ -29,8 +29,10 @@ export const chipRouter = t.router({
       if ("error" in result) {
         return result;
       }
-      result.team.relativeCoins =
-        (result.team.relativeCoins ?? ctx.team.relativeCoins) - chip.coins;
+      if (!task || task.task.id !== 5) {
+        result.team.relativeCoins =
+          (result.team.relativeCoins ?? ctx.team.relativeCoins) - chip.coins;
+      }
       result.team.chips = [
         ...(result.team.chips ?? ctx.team.chips),
         {

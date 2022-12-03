@@ -30,8 +30,7 @@ const props = defineProps<{
 }>();
 
 const isTaskModalOpen = ref(false);
-const openedTask = ref<Team["tasks"][number] | undefined>(undefined);
-const partialTask = ref<Team["currentTask"] | undefined>(undefined);
+const openedTaskId = ref<number>(0);
 
 const { coins, strikes, eliminated } = useAuth();
 const team = toRef(props, "team");
@@ -43,10 +42,7 @@ const isSm = breakpoints.smallerOrEqual("sm");
 const itemsWidth = computed(() => (isSm.value ? 800 : 120));
 
 function openTask(task?: Team["tasks"][number]) {
-  openedTask.value = task;
-  if (!task) {
-    partialTask.value = team.value.currentTask;
-  }
+  openedTaskId.value = task ? task.task.id : team.value.currentTask?.id ?? 0;
   isTaskModalOpen.value = true;
 }
 
@@ -70,16 +66,6 @@ const startedTaskStrikeDuration = computed(() => {
     ? startedTask.value.task.duration * TASK_STRIKE_DURATION_RATIO
     : undefined;
 });
-
-function onStart() {
-  const task = team.value.tasks.find(
-    (task) => task.task.id === team.value.currentTask?.id
-  );
-  openedTask.value = task;
-  if (!task) {
-    partialTask.value = team.value.currentTask;
-  }
-}
 
 function getChipImage(id: number) {
   return chips.find((chip) => chip.id === id)?.image;
@@ -199,10 +185,8 @@ function onChipClick(chip: Team["chips"][number]) {
     </div>
     <TaskModal
       v-model="isTaskModalOpen"
-      :task="openedTask"
-      :partial-task="partialTask"
       modal-id="task-modal"
-      @start="onStart"
+      :task-id="openedTaskId"
     />
     <SignoutModal v-model="isSignoutModalOpen" modal-id="signout" />
     <HintModal modal-id="hint" />
