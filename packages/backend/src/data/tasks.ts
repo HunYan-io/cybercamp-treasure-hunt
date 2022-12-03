@@ -58,9 +58,10 @@ export const tasks: Task[] = [
   {
     id: 5,
     title: "ekko",
-    description: "It's not how much time you have, it's how you use it. 🕛🥶",
+    description:
+      "It's not about how much time you have, it's how you use it. 🕛🥶\n Note: the flag format is without a comma and its only 5 characters long",
     coins: 300,
-    flag: "4767825",
+    flag: "47678",
     duration: 1000 * 60 * 25, // 25 minutes
   },
 

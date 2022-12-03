@@ -27,7 +27,8 @@ export default function useEnabledChips() {
             taskDurationUpdater.value;
             if (
               task.gambleAmount &&
-              Date.now() - task.startedAt.getTime() < task.task.duration
+              Date.now() - task.startedAt.getTime() < task.task.duration &&
+              task.task.id !== 5
             ) {
               return false;
             }

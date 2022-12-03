@@ -82,8 +82,8 @@ if (!process.env.DB_URI) {
 
 mongoose.connect(process.env.DB_URI).then(() => {
   console.log("Connected to database");
-  server.listen(+(process.env.PORT ?? 3000), () => {
-    console.log(`Listening on port ${process.env.PORT ?? 3000}`);
+  server.listen(+(process.env.PORT ?? 8080), () => {
+    console.log(`Listening on port ${process.env.PORT ?? 8080}`);
   });
 });
 

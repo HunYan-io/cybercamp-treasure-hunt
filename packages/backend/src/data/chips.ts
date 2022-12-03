@@ -49,7 +49,8 @@ export const chips: Chip[] = [
       }
       if (
         task.gambleAmount &&
-        Date.now() - task.startedAt.getTime() < task.task.duration
+        Date.now() - task.startedAt.getTime() < task.task.duration &&
+        task.task.id !== 5
       ) {
         return {
           error:
@@ -62,7 +63,7 @@ export const chips: Chip[] = [
         task: {
           frozenAt: new Date(),
         },
-        metadata: {},
+        metadata: task.task.id === 5 ? { hint: "171" } : {},
       };
     },
   },

@@ -159,6 +159,6 @@ export const taskRouter = t.router({
 
       teamEvents.emit("update", newTeam);
 
-      return { ...entry, task };
+      return newTeam;
     }),
 });

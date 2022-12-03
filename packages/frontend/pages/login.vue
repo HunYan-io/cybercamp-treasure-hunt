@@ -48,8 +48,8 @@ function login() {
       nickname: nickname.value,
       password: password.value,
     })
-    .then((user) => {
-      setAuth({ user, team: null });
+    .then(({ user, team }) => {
+      setAuth({ user, team });
       router.push({ name: routes.team });
     })
     .catch((err) => {

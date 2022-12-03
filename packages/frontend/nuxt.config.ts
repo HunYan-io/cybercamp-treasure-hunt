@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: "CyberCamp Treasure Hunt",
+    },
+  },
   typescript: {
     typeCheck: true,
   },

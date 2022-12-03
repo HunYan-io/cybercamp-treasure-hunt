@@ -67,10 +67,9 @@ function start(gambleAmount: number) {
     .mutate({
       gambleAmount,
     })
-    .then((taskEntry) => {
+    .then((newTeam) => {
       if (!team.value) return;
-      team.value.tasks.push(taskEntry);
-      team.value.relativeCoins -= taskEntry.gambleAmount;
+      team.value = newTeam;
       emit("start");
     })
     .catch(() => {
